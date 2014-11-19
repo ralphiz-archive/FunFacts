@@ -39,4 +39,15 @@
         android:background="@android:color/white"
         android:textColor="#51b46d" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_referral_button"
+        android:id="@+id/showReferralButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
+        android:textColor="#51b46d"
+        android:visibility="invisible"/>
+
 </RelativeLayout>

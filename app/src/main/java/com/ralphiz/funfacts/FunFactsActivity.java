@@ -1,26 +1,19 @@
 package com.ralphiz.funfacts;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Random;
 
 
 public class FunFactsActivity extends Activity {
 
     public static final String TAG = FunFactsActivity.class.getSimpleName();
-
-    private FactBook mFactBook = new FactBook();
-    private ColorWheel mColorWheel = new ColorWheel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +23,42 @@ public class FunFactsActivity extends Activity {
         // Declare our view variables and assign them the Views from the layout file
         final TextView factLabel = (TextView) findViewById(R.id.factTextView);
         final Button showFactButton = (Button) findViewById(R.id.showFactButton);
+        final Button showReferralButton = (Button) findViewById(R.id.showReferralButton);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.funFactsRelativeLayout);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String fact = mFactBook.getFact();
-                int color = mColorWheel.getColor();
+                if(FactBook.getmFactsShown() != 10) {
+                    String fact = FactBook.getFact();
+                    int color = ColorWheel.getColor();
 
-                // Update the label with our dynamic fact
-                factLabel.setText(fact);
+                    // Update the label with our dynamic fact
+                    factLabel.setText(fact);
 
-                // Update the background color
-                relativeLayout.setBackgroundColor(color);
+                    // Update the background color
+                    relativeLayout.setBackgroundColor(color);
 
-                // Update the button color text
-                showFactButton.setTextColor(color);
+                    // Update the button color text
+                    showFactButton.setTextColor(color);
+                }else {
+                    String fact = FactBook.getFact();
+                    int color = ColorWheel.getColor();
+                    factLabel.setText(fact);
+                    relativeLayout.setBackgroundColor(color);
+                    showFactButton.setVisibility(View.GONE);
+                    showReferralButton.setTextColor(color);
+                    showReferralButton.setVisibility(View.VISIBLE);
+                }
             }
         };
+        showReferralButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://referrals.trhou.se/ralphcacho"));
+                startActivity(viewIntent);
+            }
+        });
+
         showFactButton.setOnClickListener(listener);
 
         //Toast.makeText(this, "Activity started", Toast.LENGTH_LONG).show();

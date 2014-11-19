@@ -8,7 +8,7 @@ import java.util.Random;
  * Created by Ralph Cacho on 10/18/2014.
  */
 public class ColorWheel {
-    public String mColors[] = {
+    public static String mColors[] = {
             "#39add1", // light blue
             "#3079ab", // dark blue
             "#c25975", // mauve
@@ -24,7 +24,7 @@ public class ColorWheel {
             "#b7c0c7"  // light gray
     };
 
-    public int getColor() {
+    public static int getColor() {
         String color = "";
 
         Random randomGenerator = new Random(); // Construct a new Random number generator

@@ -6,8 +6,7 @@ import java.util.Random;
  * Created by Ralph Cacho on 10/18/2014.
  */
 public class FactBook {
-    // Member variables (properties about the object)
-    String[] mFacts = {
+    public static String[] mFacts = {
             "Ants stretch when they wake up in the morning.",
             "Ostriches can run faster than horses.",
             "Olympic gold medals are actually made mostly of silver.",
@@ -18,18 +17,31 @@ public class FactBook {
             "Some penguins can leap 2-3 meters out of the water.",
             "On average, it takes 66 days to form a new habit.",
             "Mammoths still walked the earth when the Great Pyramid was being built." };
+    private static int[] mIndex = {0,0,0,0,0,0,0,0,0,0};
+    private static int mFactsShown = 0;
 
-    // Method (abilities: things the object can do)
-    public String getFact() {
-        // The button was clicked, so update the fact label with a new fact
+    public static int getmFactsShown() {
+        return mFactsShown;
+    }
+
+    public static String getFact() {
         String fact = "";
-
-        // Randomly select a fact
         Random randomGenerator = new Random();
-        int randomNumber = randomGenerator.nextInt(10);
+        int index;
 
-        fact = mFacts[randomNumber];
+        if (mFactsShown != 10) {
+            do {
+                index = randomGenerator.nextInt(10);
+            } while (mIndex[index] == 1);
 
-        return fact;
+            mIndex[index] = 1;
+            ++mFactsShown;
+
+            fact = mFacts[index];
+            return fact;
+        } else {
+            fact = "You've read all the facts! Don't forget to check out Treehouse by clicking on the button below!";
+            return fact;
+        }
     }
 }
