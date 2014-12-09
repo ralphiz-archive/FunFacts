@@ -23,16 +23,29 @@ public class ColorWheel {
             "#f092b0", // pink
             "#b7c0c7"  // light gray
     };
+    public static int[] mColorsIndex = {0,0,0,0,0,0,0,0,0,0};
+    private static int mColorsShown = 0;
 
     public static int getColor() {
         String color = "";
+        Random randomGenerator = new Random();
+        int index;
 
-        Random randomGenerator = new Random(); // Construct a new Random number generator
-        int randomNumber = randomGenerator.nextInt(mColors.length);
 
-        color = mColors[randomNumber];
-        int colorAsInt = Color.parseColor(color);
+        if (mColorsShown < 10) {
+            do {
+                index = randomGenerator.nextInt(10);
+            } while (mColorsIndex[index] == 1);
 
-        return colorAsInt;
+            mColorsIndex[index] = 1;
+            ++mColorsShown;
+
+            color = mColors[index];
+            return Color.parseColor(color);
+        } else {
+            index = randomGenerator.nextInt(10);
+            color = mColors[index];
+            return Color.parseColor(color);
+        }
     }
 }
