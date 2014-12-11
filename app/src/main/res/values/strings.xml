@@ -4,7 +4,7 @@
     <string name="app_name">Fun Facts</string>
     <string name="did_you_know">Did you know?</string>
     <string name="new_fact">Show Another Fun Fact</string>
-    <string name="label_referral_button">Check out Treehouse!</string>
+    <string name="label_exit">Click me to exit!</string>
     <string name="initial_fact">You can tap the button below for a new fact.</string>
     <string name="action_settings">Settings</string>
 

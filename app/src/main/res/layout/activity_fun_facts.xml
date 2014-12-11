@@ -42,7 +42,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_referral_button"
+        android:text="@string/label_exit"
         android:id="@+id/showReferralButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

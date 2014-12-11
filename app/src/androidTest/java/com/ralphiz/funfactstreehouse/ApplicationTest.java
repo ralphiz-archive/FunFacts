@@ -1,4 +1,4 @@
-package com.ralphiz.funfacts;
+package com.ralphiz.funfactstreehouse;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

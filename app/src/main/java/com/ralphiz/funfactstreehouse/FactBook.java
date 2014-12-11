@@ -1,4 +1,4 @@
-package com.ralphiz.funfacts;
+package com.ralphiz.funfactstreehouse;
 
 import java.util.Random;
 
@@ -40,7 +40,7 @@ public class FactBook {
             fact = mFacts[index];
             return fact;
         } else {
-            fact = "You've read all the facts! Don't forget to check out Treehouse by clicking on the button below!";
+            fact = "You've read all the facts! Don't forget to check out Treehouse. Click the button to exit. Thanks!";
             return fact;
         }
     }

@@ -1,8 +1,6 @@
-package com.ralphiz.funfacts;
+package com.ralphiz.funfactstreehouse;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,8 +52,8 @@ public class FunFactsActivity extends Activity {
         showReferralButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://referrals.trhou.se/ralphcacho"));
-                startActivity(viewIntent);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
             }
         });
 
